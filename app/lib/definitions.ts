@@ -18,6 +18,13 @@ export const SignupFormSchema = z
     message: "Passwords don't match",
   });
 
+
+export const LoginFormSchema = z
+.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string()
+})
+
 export type FormState =
   | {
       errors?: {
