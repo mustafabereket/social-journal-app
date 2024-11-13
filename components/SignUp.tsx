@@ -6,8 +6,6 @@ import { useFormStatus } from "react-dom";
 import { signup } from "../app/actions/user";
 import { Button } from "@/components/ui/button";
 
-import { SignupFormSchema } from "@/app/lib/definitions";
-
 const SignUp = () => {
   const [state, action] = useActionState(signup, undefined);
   return (
@@ -70,6 +68,7 @@ const SignUp = () => {
             </ul>
           </div>
         )}
+        {state?.errors?.general && <p>{state?.errors?.general}</p>}
         <SubmitButton />
       </Form>
     </div>
